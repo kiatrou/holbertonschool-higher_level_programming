@@ -12,4 +12,5 @@ else:
     print("and is less than 6 and not 0")
 
 # line 4 - if number is greater than or equal to 0, follow number % 10
-# else abs (absolute value) takes the number and turns it into a positive number and gives the last digit. -(...) flips the number back to a negative
+# else abs (absolute value) takes the number and turns it into a positive
+# number and gives the last digit. -(...) flips the number back to a negative

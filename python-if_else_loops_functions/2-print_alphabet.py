@@ -5,4 +5,5 @@ while letter < 122:
     letter += 1
 
 # using chr ensures the program prints the ASCII value, not the number
-# end="" ensures the letters are printed on the same line without newline characters
+# end="" ensures the letters are printed on the same line without
+# newline characters
