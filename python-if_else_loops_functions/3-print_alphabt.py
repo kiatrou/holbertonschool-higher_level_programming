@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-for counter in range(97, 123):
-    if counter != 101 and counter != 113:
-        print("{:c}".format(counter), end="")
+for i in range(97, 123):
+    if i != 101 and i != 113:
+        print("{:c}".format(i), end="")
 
 # in print statement - {:c} is a format specification
 # (: introduces the format)
