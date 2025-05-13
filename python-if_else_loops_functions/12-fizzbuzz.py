@@ -12,5 +12,3 @@ def fizzbuzz():
         else:
             print("{}".format(hundred), end=" ")
         hundred += 1
-
-fizzbuzz()
