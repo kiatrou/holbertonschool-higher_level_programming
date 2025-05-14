@@ -2,11 +2,15 @@
 import sys
 
 if __name__ == "__main__":
-    counter = 0
+    args = sys.argv[1:]
+    num_args = len(args)
 
-    for i in sys.argv:
-        counter += 1
-        print("{} arguments:".format(counter))
-        print("{}: {}".format(counter, i))
-        if i == 0:
-            print("{} arguments.".format(counter))
+    if num_args == 0:
+        print("0 arguments.")
+    elif num_args == 1:
+        print("1 argument:")
+    else:
+        print("{} arguments:".format(num_args))
+
+    for i in range(num_args):
+        print("{}: {}".format(i + 1, args[i]))
