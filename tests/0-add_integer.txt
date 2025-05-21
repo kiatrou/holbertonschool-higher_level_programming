@@ -1,4 +1,4 @@
->>> from my_module import add_integer
+>>> from add_integer import add_integer
 >>> add_integer(2, 99)
 101
 >>> add_integer(5, 5)
