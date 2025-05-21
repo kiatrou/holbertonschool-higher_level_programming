@@ -23,11 +23,11 @@ TypeError: ...
 Traceback (most recent call last):
     ...
 TypeError: ...
- >>> add_integer(float('inf'), 2)
-    Traceback (most recent call last):
+>>> add_integer(float('inf'), 2)
+Traceback (most recent call last):
     ...
-    OverflowError: Float overflow: cannot convert to integer
-    >>> add_integer(float('nan'), 2)
-    Traceback (most recent call last):
+OverflowError: Float overflow: cannot convert to integer
+>>> add_integer(float('nan'), 2)
+Traceback (most recent call last):
     ...
-    ValueError: cannot convert float
+ValueError: cannot convert float
