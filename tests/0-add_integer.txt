@@ -1,0 +1,11 @@
+>>> from my_module import add_integer
+>>> add_integer(2, 98)
+100
+>>> add_integer(5, 5)
+10
+>>> add_integer("hello", 1)  # doctest: +IGNORE_EXCEPTION_DETAIL
+Traceback (most recent call last):
+TypeError: ...
+>>> add_integer(1, "hello")  # doctest: +IGNORE_EXCEPTION_DETAIL
+Traceback (most recent call last):
+TypeError: ...
