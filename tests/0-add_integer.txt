@@ -5,6 +5,16 @@
 10
 >>> add_integer(10)
 108
+>>> add_integer(3.7, 4.2)
+7
+>>> add_integer(-1, -2)
+-3
+>>> add_integer(0, 0)
+0
+>>> add_integer(5, 2.9)
+7
+>>> add_integer(4.5, 3)
+7
 >>> add_integer("hello", 1)  # doctest: +IGNORE_EXCEPTION_DETAIL
 Traceback (most recent call last):
 TypeError: ...
