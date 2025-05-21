@@ -2,6 +2,8 @@
 """
 This module contains a function add_integer that adds two integers.
 """
+
+
 def add_integer(a, b=98):
     """
     Adds two integers and returns the result.
@@ -18,6 +20,7 @@ def add_integer(a, b=98):
     a = int(a)
     b = int(b)
     return (a + b)
+
 
 if __name__ == "__main__":
     import doctest
