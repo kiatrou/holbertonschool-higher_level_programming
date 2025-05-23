@@ -23,6 +23,8 @@ class Rectangle:
         prints the rectangle using #
     __repr__(self):
         a string used to look like a Python expression
+    __del__(self):
+        called when an object is about to be destroyed
     """
     def __init__(self, width=0, height=0):
         self.width = width
@@ -73,3 +75,6 @@ class Rectangle:
 # __repr__ is a string that looks like a Python expression
     def __repr__(self):
         return (f"Rectangle({self.width}, {self.height})")
+
+    def __del__(self):
+        print("Bye rectangle...")
