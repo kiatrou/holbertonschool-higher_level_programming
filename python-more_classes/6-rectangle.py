@@ -11,6 +11,7 @@ class Rectangle:
     number_of_instances:
         incremented during each new instance inisialisation
         decremented during each instance deletion
+        keeps track of how many rectangles exist
 
     Attributes
     ----------
