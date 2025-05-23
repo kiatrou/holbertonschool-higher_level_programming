@@ -64,4 +64,4 @@ class Rectangle:
         shape = []
         for i in range(self.height):
             shape.append("#" * self.width)
-            return ("\n".join(shape))
+        return ("\n".join(shape))
