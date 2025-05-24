@@ -1,5 +1,19 @@
 #!/usr/bin/python3
+"""
+This module contains a function matrix_divided that divides a matrix.
+"""
+
+
 def matrix_divided(matrix, div):
+    """
+    Divides matrix and returns the result.
+
+    matrix must be a list of lists of integers or floats, otherwise raise a
+    TypeError exception with the message matrix must be a matrix
+    (list of lists) of integers/floats
+
+    Returns result.
+    """
     # Check that matrix is a list of lists of numbers
     if (not isinstance(matrix, list) or
             not all(isinstance(row, list) for row in matrix) or

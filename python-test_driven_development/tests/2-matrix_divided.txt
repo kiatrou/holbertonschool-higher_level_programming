@@ -2,31 +2,26 @@
 Expected output
 >>> matrix_divided([[1, 2], [3, 4]], 2)
 [[0.5, 1.0], [1.5, 2.0]]
-
 Matrix is not a list of lists
 >>> matrix_divided("not a matrix", 2)
   Traceback (most recent call last):
     ...
     TypeError: ...
-
 Element in matrix isn't int or float
 >>> matrix_divided([[1, "a"], [3, 4]], 2)
   Traceback (most recent call last):
     ...
     TypeError: ...
-
 Rows are not the same size
 >>> matrix_divided([[1, 2], [3, 4, 5]], 2)
   Traceback (most recent call last):
     ...
     TypeError: ...
-
 Div is not number
 >>> matrix_divided([[1, 2], [3, 4]], "a")
   Traceback (most recent call last):
     ...
     TypeError: ...
-
 Div is zero
 >>> matrix_divided([[1, 2], [3, 4]], 0)
   Traceback (most recent call last):
