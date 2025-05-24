@@ -17,8 +17,10 @@ def matrix_divided(matrix, div):
     # Check that matrix is a list of lists of numbers
     if (not isinstance(matrix, list) or
             not all(isinstance(row, list) for row in matrix) or
-            not all(isinstance(elem, (int, float)) for row in matrix for elem in row)):
-        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+            not all(isinstance(elem, (int, float)) for row in matrix
+                    for elem in row)):
+        raise TypeError("matrix must be a matrix (list of lists) "
+                        "of integers/floats")
 
     # Check all rows are the same length
     row_length = len(matrix[0])
