@@ -9,7 +9,7 @@ def lookup(obj):
     """
     This function returns a list of available attributes
     and methods of an object
-    __dict__ is a built-in attribute that returns a dictionary representing
-    the namespace (all attributes and their values) of an object or class.
+    dir() function returns a list of all valid attributes and methods
+    of an object — including inherited ones.
     """
-    return (obj.__dict__)
+    return (dir(obj))
