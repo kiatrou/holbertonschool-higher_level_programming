@@ -13,7 +13,6 @@
 >>> my_list.append(4)
 >>> my_list.print_sorted()
 [1, 2, 3, 4]
-Edge case: adding a string to the list
 >>> my_list.append("hello")
 >>> my_list.print_sorted()
 Traceback (most recent call last):
