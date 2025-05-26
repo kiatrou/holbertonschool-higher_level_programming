@@ -9,4 +9,5 @@ def is_same_class(obj, a_class):
     This is a function that returns True if the object is exactly
     an instance of the specified class; otherwise False
     """
+    # type() function returns the type (or class) of an object
     return (type(obj) is a_class)
