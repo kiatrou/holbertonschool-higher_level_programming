@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 This module has the class MyList which inherites
-from list
+ffrom list
 """
 
 
