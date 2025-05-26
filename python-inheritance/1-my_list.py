@@ -18,4 +18,4 @@ class MyList(list):
         prints the list in ascending order
     """
     def print_sorted(self):
-        return (sorted(self))
+        print(sorted(self))
