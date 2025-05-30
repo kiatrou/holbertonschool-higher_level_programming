@@ -13,10 +13,10 @@ class CountedIterator():
         self.counter = 0
 
     def __next__(self):
-        # Increment the counter by 1 each time __next__ is called
-        self.counter += 1
         # Get the next item from the original iterator
         item = next(self.iterator)
+        # Increment the counter by 1 each time __next__ is called
+        self.counter += 1
         # Return the retrieved item
         return (item)
 
