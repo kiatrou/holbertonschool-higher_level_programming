@@ -11,5 +11,6 @@ def read_file(filename=""):
     """
     with open(filename, encoding="utf-8") as file:
         contents = file.read()
-        print(contents)
-
+        open(1, 'w').write(contents)
+        # 1 = file descriptor 1 = standard output
+        # w = writes the text exactly as is
