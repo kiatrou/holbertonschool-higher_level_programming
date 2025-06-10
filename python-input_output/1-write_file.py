@@ -7,7 +7,7 @@ and returns the number of characters written
 
 def write_file(filename="", text=""):
     """
-    Note: write has a built-in function that counts characters
+    Note: write has a built-in function that counts characters written
     Opening the file in w mode (write mode) in order to create/overwrite
     the contents of the file and used the standard encoding
     """
