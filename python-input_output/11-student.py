@@ -20,8 +20,12 @@ class Student:
     Methods
         to_json:
             retrieves a dictionary representation of a Student instance
-            If attrs is a list of strings, only attributes name contain in this list must be retrieved.
+            If attrs is a list of strings, only attributes name contain in this
+            list must be retrieved.
             Otherwise, all attributes must be retrieved
+
+        reload_from_json:
+            replaces all attributes of the Student instance
     -------
     """
     def __init__(self, first_name, last_name, age):
@@ -41,3 +45,13 @@ class Student:
     # If attrs is not a list (or is None), return all attributes
         else:
             return (self.__dict__)
+
+    def reload_from_json(self, json):
+        # loops over all key:value pairs in the json dictionary
+        for key, value in json.items():
+            # sets an attribute named key on the object self to the value value
+            setattr(self, key, value)
+            # This method updates the object’s attributes using the
+            # key-value pairs provided.
+            # It replaces existing attributes or adds new ones dynamically
+            # based on the dictionary.
