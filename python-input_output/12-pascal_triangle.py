@@ -10,7 +10,7 @@ def pascal_triangle(n):
     Prints pascal triangle
     """
     if n <= 0:
-        return
+        return ([])
 
     triangle = [[1]]
 
@@ -21,13 +21,13 @@ def pascal_triangle(n):
         # every row starts with 1
         new_row = [1]
 
-    # compute the middle values by adding pairs of the previous row
-    for j in range(len(previous_row) - 1):
-        new_row.append(previous_row) + previous_row[j + 1]
+        # compute the middle values by adding pairs of the previous row
+        for j in range(len(previous_row) - 1):
+            new_row.append(previous_row[j] + previous_row[j + 1])
 
-    # every row ends with 1
-    new_row.append(1)
-    # adds the new row to the triangle
-    triangle.append(new_row)
+        # every row ends with 1
+        new_row.append(1)
+        # adds the new row to the triangle
+        triangle.append(new_row)
 
     return (triangle)
