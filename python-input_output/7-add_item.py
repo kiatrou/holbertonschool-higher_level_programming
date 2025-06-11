@@ -13,6 +13,9 @@ save_to_json = __import__('5-save_to_json').save_to_json
 load_from_json = __import__('6-load_from_json').load_from_json
 
 
+"""
+Check comments for notes
+"""
 # Using 1: ensures that only the arguments are used and not the filename,
 # which is at index 0
 # use sys.argv to accept input from terminal
