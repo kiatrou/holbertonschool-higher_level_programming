@@ -6,7 +6,7 @@ This is a basic serialization module
 import json
 
 
-def serialization_and_save_to_file(data, filename):
+def serialize_and_save_to_file(data, filename):
     """
     since this is being saved into a file, need to use dump
     w - opening the file for writing (automatically creates
