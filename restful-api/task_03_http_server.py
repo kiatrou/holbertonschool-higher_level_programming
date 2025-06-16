@@ -18,16 +18,11 @@ class MyHandler(http.server.BaseHTTPRequestHandler):
             # tells the browser/tool everything went okay
             self.send_response(200)
             # Headers describe what kind of content is being sent
-            self.send_header("Content-type", "application/json")
+            self.send_header("Content-type", "text/plain")
             # this finalises the HTTP response headers before sending the
             # actual content
             self.end_headers()
-            # create python data  as a dictionary - holds the data to be sent
-            data = {"message": "Hello, this is a simple API!"}
-            # converts dictionary to JSON formatted string
-            json_string = json.dumps(data)
-            # being sent in bytes
-            self.wfile.write(json_string.encode())
+            self.wfile.write(b"Hello, this is a simple API!")
         elif self.path == "/data":
             self.send_response(200)
             self.send_header("Content-type", "application/json")
@@ -38,19 +33,18 @@ class MyHandler(http.server.BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header("Content-type", "application/json")
             self.end_headers()
-            data = {"version": "1.0", "description": "A simple API built"
-                    "with http.server"}
+            data = {"version": "1.0", "description": "A simple API built with http.server"}
             self.wfile.write(json.dumps(data).encode())
         elif self.path == "/status":
             self.send_response(200)
             self.send_header("Content-type", "text/plain")
             self.end_headers()
-            self.wfile.write(b"Ok")
+            self.wfile.write(b"OK")
         else:
             self.send_response(404)
             self.send_header("Content-type", "text/plain")
             self.end_headers()
-            self.wfile.write(b"404 Not Found")
+            self.wfile.write(b"Endpoint not found")
 
 
 Handler = MyHandler
