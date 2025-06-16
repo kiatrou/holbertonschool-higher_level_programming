@@ -23,7 +23,7 @@ class MyHandler(http.server.BaseHTTPRequestHandler):
             # actual content
             self.end_headers()
             # create python data  as a dictionary - holds the data to be sent
-            data = {"message": "Hello, this is an API!"}
+            data = {"message": "Hello, this is a simple API!"}
             # converts dictionary to JSON formatted string
             json_string = json.dumps(data)
             # being sent in bytes
@@ -41,9 +41,14 @@ class MyHandler(http.server.BaseHTTPRequestHandler):
             data = {"version": "1.0", "description": "A simple API built"
                     "with http.server"}
             self.wfile.write(json.dumps(data).encode())
+        elif self.path == "/status":
+            self.send_response(200)
+            self.send_header("Content-type", "text/plain")
+            self.end_headers()
+            self.wfile.write(b"Ok")
         else:
             self.send_response(404)
-            self.send_header("Content/type", "text/plain")
+            self.send_header("Content-type", "text/plain")
             self.end_headers()
             self.wfile.write(b"404 Not Found")
 
