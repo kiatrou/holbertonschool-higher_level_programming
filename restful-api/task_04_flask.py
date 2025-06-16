@@ -11,20 +11,7 @@ from flask import request
 
 app = Flask(__name__)
 
-users = {
-    "john": {
-        "username":"john",
-        "name": "John",
-        "age": 30,
-        "city": "New York"
-    },
-    "jane": {
-        "username": "jane",
-        "name": "Jane",
-        "age": 28,
-        "city": "Los Angeles"
-    }
-}
+users = {}
 
 @app.route("/")
 def home():
