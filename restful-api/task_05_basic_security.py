@@ -48,12 +48,17 @@ def handle_needs_fresh_token_error(err):
 
 # function to verify credentials - ie passwords
 @auth.verify_password
-# checks if username exists in users dictionary and if the entered password matches the stored hashed password
 def verify_password(username, password):
+    # checks if username exists in users dictionary and if the entered password matches the stored hashed password
     if username in users and \
             check_password_hash(users[username]["password"], password):
         return users[username]  # Return the user object
-    return None  # Return None if authentication fails
+    return False  # Return False if authentication fails
+
+# Custom error handler for basic auth
+@auth.error_handler
+def auth_error(status):
+    return jsonify({"error": "Unauthorized access"}), 401
 
 # Basic Authentication Route
 @app.route("/basic-protected")
@@ -109,5 +114,15 @@ def admin_only():
     
     return "Admin Access: Granted"
 
+# Test route to verify server is running
+@app.route("/")
+def home():
+    return jsonify({"message": "API is running", "endpoints": [
+        "/basic-protected (GET) - Basic Auth required",
+        "/login (POST) - Login to get JWT token", 
+        "/jwt-protected (GET) - JWT token required",
+        "/admin-only (GET) - Admin JWT token required"
+    ]})
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5000)
