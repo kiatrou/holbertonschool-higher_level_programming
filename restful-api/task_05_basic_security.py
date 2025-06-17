@@ -37,9 +37,9 @@ def verify_password(username, password):
             check_password_hash(users[username]["password"], password):
         return (users[username])
 
-@auth.error_response
-def auth_error_response():
-    return (jsonify({"error": "Unauthorized access"}), 401)
+@auth.error_handler
+def unauthorized():
+    return jsonify({"error": "Unauthorized"}), 401
 
 
 # basic protected creates a route available at /basic-protected
