@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This is a script that lists all states from the database hbtn_0d_usa
+This is a script that lists all states from the database hbtn_0e_0_usa
 """
 
 
@@ -8,29 +8,29 @@ import MySQLdb
 import sys
 
 
-# Command line arguments
-username = sys.argv[1]
-password = sys.argv[2]
-database = sys.argv[3]
-
-# Connect to the database
-connection = MySQLdb.connect(
-    host='localhost',
-    port=3306,
-    user=username,
-    passwd=password,
-    db=database
-)
-
-# Makes sure the file only runs when executed
 if __name__ == "__main__":
     """
-    Finds and lists all the states from hbtn_0d_usa table
+    Finds and lists all the states from hbtn_0e_0_usa table
     """
+
+    # Command line arguments
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
+
+    # Connect to the database
+    connection = MySQLdb.connect(
+        host='localhost',
+        port=3306,
+        user=username,
+        passwd=password,
+        db=database
+    )
 
     # Cursor - acts as a pointer that lets you execute SQL commands and
     # navigate through results. This is what sends SQL commands to the database
     cursor = connection.cursor()
+
     # SQL Query - Selects all the states and orders them in ascending order
     cursor.execute("SELECT * FROM states ORDER BY id ASC")
 
