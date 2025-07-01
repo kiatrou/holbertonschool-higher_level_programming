@@ -1,39 +1,49 @@
 #!/usr/bin/python3
 """
-This is a script that takes in the name of a state as an argument
-and lists all cities of that state
+Script that lists all cities of a given state from the database hbtn_0e_4_usa
+SQL injection safe!
 """
-
 
 import MySQLdb
 import sys
 
-
 if __name__ == "__main__":
-    # Command line arguments
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
+    # Get command line arguments
+    mysql_username = sys.argv[1]
+    mysql_password = sys.argv[2]
+    database_name = sys.argv[3]
     state_name = sys.argv[4]
 
-    # Connect to the database
-    connection = MySQLdb.connect(
-        host='localhost',
+    # Connect to MySQL server
+    db = MySQLdb.connect(
+        host="localhost",
         port=3306,
-        user=username,
-        passwd=password,
-        db=database
+        user=mysql_username,
+        passwd=mysql_password,
+        db=database_name
     )
 
-    cursor = connection.cursor()
-    query = ("SELECT cities.id, cities.name FROM cities JOIN states ON "
-             "cities.state_id = states.id WHERE states.name = %s ORDER "
-             "BY cities.id ASC")
+    # Create cursor
+    cursor = db.cursor()
+
+    # Execute query to get cities for the specified state, sorted by cities.id
+    # Using parameterized query to prevent SQL injection
+    query = """
+    SELECT cities.id, cities.name
+    FROM cities
+    JOIN states ON cities.state_id = states.id
+    WHERE states.name = %s
+    ORDER BY cities.id ASC
+    """
     cursor.execute(query, (state_name,))
 
+    # Fetch and display results
     results = cursor.fetchall()
+    city_names = []
     for row in results:
-        print(row)
+        city_names.append(row[1])  # row[1] is the city name
+    print(", ".join(city_names))
 
+    # Close cursor and database connection
     cursor.close()
-    connection.close()
+    db.close()
