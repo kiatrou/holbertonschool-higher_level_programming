@@ -27,7 +27,7 @@ if __name__ == "__main__":
 
     cursor = connection.cursor()
     # Using .format() to use user's input
-    query = ("SELECT * FROM states WHERE name = '{}' ORDER BY "
+    query = ("SELECT * FROM states WHERE name = BINARY '{}' ORDER BY "
              "id ASC").format(state_name)
     cursor.execute(query)
 
