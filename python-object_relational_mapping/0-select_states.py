@@ -24,8 +24,12 @@ connection = MySQLdb.connect(
 
 # Makes sure the file only runs when executed
 if __name__ == "__main__":
+    """
+    Finds and lists all the states from hbtn_0d_usa table
+    """
 
-    # Cursor - acts as a pointer that lets you execute SQL commands and navigate through results. This is what sends SQL commands to the database
+    # Cursor - acts as a pointer that lets you execute SQL commands and
+    # navigate through results. This is what sends SQL commands to the database
     cursor = connection.cursor()
     # SQL Query - Selects all the states and orders them in ascending order
     cursor.execute("SELECT * FROM states ORDER BY id ASC")
@@ -35,8 +39,11 @@ if __name__ == "__main__":
     for row in results:
         print(row)
 
-    # Clean up resources - do this to avoid memory leaks and leaving the database in an unstable state
-    # Closing the cursor frees up resources and tells the database you're done with this particular query session
+    # Clean up resources - do this to avoid memory leaks and leaving
+    # the database in an unstable state
+    # Closing the cursor frees up resources and tells the database
+    # you're done with this particular query session
     cursor.close()
-    # Closing the connection to the MySQL server, freeing up the connection slot for other programs to use
+    # Closing the connection to the MySQL server, freeing up the
+    # connection slot for other programs to use
     connection.close()
