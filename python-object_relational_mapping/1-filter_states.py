@@ -25,8 +25,9 @@ if __name__ == "__main__":
     )
 
     cursor = connection.cursor()
-    cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+    cursor.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC")
     # LIKE is used for pattern matching
+    # BINARY - ensures it'll stick to case-sensitive requirements
     # 'N%' means starts with N - % is a wildcard that matches any
     # sequence of characters
 
