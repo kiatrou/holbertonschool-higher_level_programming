@@ -22,8 +22,8 @@ if __name__ == "__main__":
                            .format(username, password, database))
 
     with Session(engine) as session:
-        all_states = session.query(State).filter
-        (State.name.like("a")).order_by(State.id).all()
+        all_states = (session.query(State)
+        .filter(State.name.like("%a%")).order_by(State.id).all())
 
         for state in all_states:
             print(f"{state.id}: {state.name}")
