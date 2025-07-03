@@ -20,7 +20,8 @@ if __name__ == "__main__":
 
     # Create engine and connect to MySQL server
     engine = create_engine(
-        f'mysql+mysqldb://{username}:{password}@localhost:3306/{database_name}',
+        'mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
+            username, password, database_name),
         pool_pre_ping=True
     )
 
@@ -29,14 +30,12 @@ if __name__ == "__main__":
     session = Session()
 
     # Query cities with their states, sorted by cities.id
-    cities = session.query(City, State)\
-             .join(State, City.state_id == State.id)\
-             .order_by(City.id)\
-             .all()
+    cities = session.query(City, State).join(
+        State, City.state_id == State.id).order_by(City.id).all()
 
     # Print results in the required format
     for city, state in cities:
-        print(f"{state.name}: ({city.id}) {city.name}")
+        print("{}: ({}) {}".format(state.name, city.id, city.name))
 
     # Close session
     session.close()
