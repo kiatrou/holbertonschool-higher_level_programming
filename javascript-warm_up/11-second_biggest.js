@@ -13,15 +13,12 @@ if (args.length === 0 || args.length === 1) {
   }
 
   // Find the biggest and second biggest
-  let biggest = numbers[0];
-  let secondBiggest = numbers[0];
+  const biggest = Math.max(...numbers);
+  let secondBiggest = Math.min(...numbers);
 
-  // Go through all numbers to find biggest and second biggest
+  // Go through all numbers to find the second biggest
   for (let i = 0; i < numbers.length; i++) {
-    if (numbers[i] > biggest) {
-      secondBiggest = biggest;
-      biggest = numbers[i];
-    } else if (numbers[i] > secondBiggest && numbers[i] < biggest) {
+    if (numbers[i] > secondBiggest && numbers[i] < biggest) {
       secondBiggest = numbers[i];
     }
   }
