@@ -19,13 +19,15 @@ def contact():
 
 @app.route('/items')
 def items():
-    # Open and read json file (opens JSON file for reading)
-    with open('items.json', 'r') as file:
-        # converst the JSON into a Python dictionary
-        data = json.load(file)
-    # extract the items list from the data (gets the value of the "items" key from JSON - which is the list)
-    items_list = data['items']
-    # pass it to the template (passes that list to the template)
+    try:
+        with open('items.json', 'r') as file:
+            data = json.load(file)
+        # Use .get() with default empty list
+        items_list = data.get('items', [])
+    except (FileNotFoundError, json.JSONDecodeError):
+        # Default to empty list if file issues
+        items_list = []
+
     return render_template('items.html', items=items_list)
 
 
