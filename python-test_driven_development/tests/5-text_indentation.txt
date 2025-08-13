@@ -1,0 +1,97 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+>>> text_indentation("Hello world. How are you? Fine: thank you.")
+Hello world.
+
+How are you?
+
+Fine:
+
+thank you.
+
+>>> text_indentation("Hello world.")
+Hello world.
+
+
+>>> text_indentation("How are you?")
+How are you?
+
+
+>>> text_indentation("Note:")
+Note:
+
+
+>>> text_indentation("")
+
+>>> text_indentation("Hello world")
+Hello world
+
+>>> text_indentation("  Hello  .  World  ")
+  Hello  .
+
+  World  
+
+>>> text_indentation("Hello. How? Yes: No.")
+Hello.
+
+How?
+
+Yes:
+
+No.
+
+
+>>> text_indentation(".?:")
+.
+
+?
+
+:
+
+
+>>> text_indentation("   ")
+   
+
+>>> text_indentation("Hello    world.    How    are you?")
+Hello    world.
+
+How    are you?
+
+
+>>> text_indentation("First.Second?Third:")
+First.
+
+Second?
+
+Third:
+
+
+>>> text_indentation("Test.   More text")
+Test.
+
+More text
+
+>>> text_indentation("Test?   More text")
+Test?
+
+More text
+
+>>> text_indentation("Test:   More text")
+Test:
+
+More text
+
+>>> text_indentation(None)  # doctest: +IGNORE_EXCEPTION_DETAIL
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
+
+>>> text_indentation(123)  # doctest: +IGNORE_EXCEPTION_DETAIL
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
+
+>>> text_indentation(['a', 'b'])  # doctest: +IGNORE_EXCEPTION_DETAIL
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
