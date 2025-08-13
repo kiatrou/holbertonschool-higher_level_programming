@@ -2,24 +2,25 @@
 
 >>> text_indentation("Hello world. How are you? Fine: thank you.")
 Hello world.
-
+<BLANKLINE>
 How are you?
-
+<BLANKLINE>
 Fine:
-
+<BLANKLINE>
 thank you.
+<BLANKLINE>
 
 >>> text_indentation("Hello world.")
 Hello world.
-
+<BLANKLINE>
 
 >>> text_indentation("How are you?")
 How are you?
-
+<BLANKLINE>
 
 >>> text_indentation("Note:")
 Note:
-
+<BLANKLINE>
 
 >>> text_indentation("")
 
@@ -27,58 +28,57 @@ Note:
 Hello world
 
 >>> text_indentation("  Hello  .  World  ")
-  Hello  .
-
-  World  
+Hello.
+<BLANKLINE>
+World
 
 >>> text_indentation("Hello. How? Yes: No.")
 Hello.
-
+<BLANKLINE>
 How?
-
+<BLANKLINE>
 Yes:
-
+<BLANKLINE>
 No.
-
+<BLANKLINE>
 
 >>> text_indentation(".?:")
 .
-
+<BLANKLINE>
 ?
-
+<BLANKLINE>
 :
-
+<BLANKLINE>
 
 >>> text_indentation("   ")
-   
 
 >>> text_indentation("Hello    world.    How    are you?")
 Hello    world.
-
+<BLANKLINE>
 How    are you?
-
+<BLANKLINE>
 
 >>> text_indentation("First.Second?Third:")
 First.
-
+<BLANKLINE>
 Second?
-
+<BLANKLINE>
 Third:
-
+<BLANKLINE>
 
 >>> text_indentation("Test.   More text")
 Test.
-
+<BLANKLINE>
 More text
 
 >>> text_indentation("Test?   More text")
 Test?
-
+<BLANKLINE>
 More text
 
 >>> text_indentation("Test:   More text")
 Test:
-
+<BLANKLINE>
 More text
 
 >>> text_indentation(None)  # doctest: +IGNORE_EXCEPTION_DETAIL
