@@ -22,7 +22,8 @@ def text_indentation(text):
 
     for char in text:
         if char in '.?:':
-            current_line += char
+            # Strip trailing spaces before adding the special character
+            current_line = current_line.rstrip() + char
             print(current_line.strip())
             print()
             current_line = ""
