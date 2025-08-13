@@ -33,9 +33,9 @@ def text_indentation(text):
         else:
             current_line += char
 
-    # Print any remaining content
+    # Print any remaining content without adding extra newline
     if current_line.strip():
-        print(current_line.strip())
+        print(current_line.strip(), end="")
 
 
 if __name__ == "__main__":
