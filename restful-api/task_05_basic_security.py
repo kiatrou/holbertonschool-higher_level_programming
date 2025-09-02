@@ -34,17 +34,16 @@ def verify_password(username, password):
             check_password_hash(users[username]["password"], password):
         return users[username]  # Fixed: removed extra parentheses
 
+# Unauthorized handler
 @auth.error_handler
 def unauthorized():
     return jsonify({"error": "Unauthorized"}), 401
 
-# basic protected creates a route available at /basic-protected
+# Routes
 @app.route("/basic-protected")
-# enforces authentication
 @auth.login_required
-# gets called when someone visits the url
 def basic_protected():
-    return "Basic Auth: Access Granted"  # Fixed: removed extra parentheses
+    return jsonify({"message": "Basic Auth: Access Granted"})
 
 @app.route("/login", methods=["POST"])
 def user_login():
@@ -61,15 +60,15 @@ def user_login():
 @app.route("/jwt-protected")
 @jwt_required()
 def jwt_protected():
-    return "JWT Auth: Access Granted"  # Fixed: removed extra parentheses
+    return jsonify({"message": "JWT Auth: Access Granted"})
 
 @app.route("/admin-only")
 @jwt_required()
 def admin_only():
     user = get_jwt_identity()
     if user["role"] != "admin":
-        return jsonify({"error": "Admin access required"}), 403  # Fixed: removed extra parentheses
-    return "Admin Access: Granted"  # Fixed: removed extra parentheses
+        return jsonify({"error": "Admin access required"}), 403
+    return jsonify({"message": "Admin Access: Granted"})
 
 # JWT error handlers
 @jwt.unauthorized_loader
