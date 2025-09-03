@@ -34,10 +34,9 @@ def verify_password(username, password):
             check_password_hash(users[username]["password"], password):
         return users[username]  # Fixed: removed extra parentheses
 
-# Unauthorized handler
-@auth.error_handler
-def unauthorized():
-    return jsonify({"error": "Unauthorized"}), 401
+# Basic Auth Unauthorized handler (Flask-HTTPAuth 4.8.0 compatible)
+auth.error_handler = lambda: (jsonify({"error": "Unauthorized"}), 401)
+
 
 # Routes
 @app.route("/basic-protected")
